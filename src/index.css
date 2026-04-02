@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: #EAE6DF;
+  --color-tertiary: #F4EFE6;
+  
+  --color-bg-light: #F4EFE6;
+  --color-bg-dark: #0F172A;
+  
+  --color-card-light: #FCFAF8;
+  --color-card-dark: #1E293B;
+  
+  --color-title-light: #1A2616;
+  --color-title-dark: #F8FAFC;
+  
+  --color-body-light: #3A4035;
+  --color-body-dark: #CBD5E1;
+  
+  --color-muted-light: #8C8C8C;
+  --color-muted-dark: #94A3B8;
+  
+  --color-border-light: #EAE6DF;
+  --color-border-dark: #334155;
+  
+  --color-sidebar-bg-light: #4B6043;
+  --color-sidebar-text-light: #F4EFE6;
+  --color-sidebar-muted-light: #B8C9B1;
+  --color-sidebar-hover-light: #5B7352;
+  --color-sidebar-active-light: #F4EFE6;
+  --color-sidebar-active-text-light: #2C3A27;
+  
+  --color-sidebar-bg-dark: #0B1120;
+  --color-sidebar-text-dark: #F8FAFC;
+  --color-sidebar-muted-dark: #94A3B8;
+  --color-sidebar-hover-dark: #1E293B;
+  --color-sidebar-active-dark: #3B82F6;
+  --color-sidebar-active-text-dark: #FFFFFF;
+}
+
+@layer base {
+  :root {
+    --primary: #8FB382;
+    --primary-hover: #7A9D6E;
+    --background: var(--color-bg-light);
+    --card: var(--color-card-light);
+    --title: var(--color-title-light);
+    --body: var(--color-body-light);
+    --muted: var(--color-muted-light);
+    --border: var(--color-border-light);
+    --sidebar-bg: var(--color-sidebar-bg-light);
+    --sidebar-text: var(--color-sidebar-text-light);
+    --sidebar-muted: var(--color-sidebar-muted-light);
+    --sidebar-hover: var(--color-sidebar-hover-light);
+    --sidebar-active: var(--color-sidebar-active-light);
+    --sidebar-active-text: var(--color-sidebar-active-text-light);
+  }
+  
+  .dark {
+    --primary: #60A5FA;
+    --primary-hover: #3B82F6;
+    --background: var(--color-bg-dark);
+    --card: var(--color-card-dark);
+    --title: var(--color-title-dark);
+    --body: var(--color-body-dark);
+    --muted: var(--color-muted-dark);
+    --border: var(--color-border-dark);
+    --sidebar-bg: var(--color-sidebar-bg-dark);
+    --sidebar-text: var(--color-sidebar-text-dark);
+    --sidebar-muted: var(--color-sidebar-muted-dark);
+    --sidebar-hover: var(--color-sidebar-hover-dark);
+    --sidebar-active: var(--color-sidebar-active-dark);
+    --sidebar-active-text: var(--color-sidebar-active-text-dark);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--body);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--title);
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .card-container {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .dark .card-container {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-field {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--body);
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--body);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+
+  .dark .btn-secondary:hover {
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  /* Premium Minimalist Scrollbar */
+  ::-webkit-scrollbar, .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track, .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb, .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.3); /* gray-400 with opacity */
+    border-radius: 10px;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover, .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.6);
+  }
+
+  .dark ::-webkit-scrollbar-thumb, .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.2);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover, .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.4);
+  }
+}
+
+@keyframes wave-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-wave {
+  animation: wave-horizontal 4s linear infinite;
+}
+
